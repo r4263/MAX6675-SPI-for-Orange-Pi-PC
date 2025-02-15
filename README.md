@@ -62,3 +62,7 @@ Example: if everything was been wired correctly, the command: `python3 /opt/max6
 ```
 
 where the `<samples>` is the number of samples taken in `<total_sample_time>` time window.
+
+## Zabbix and zabbix_agentd.d
+
+The file inside `zabbix_agentd.d` folder is a ready to use additional conf that can be put inside `/etc/zabbix/zabbix_agentd.d/` to be used as supplemental config. Note that to this config file works, it must be enabled at the Zabbix Agent config file(default: enabled) and the service must be restarted.
