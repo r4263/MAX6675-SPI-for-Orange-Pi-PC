@@ -66,3 +66,29 @@ where the `<samples>` is the number of samples taken in `<total_sample_time>` ti
 ## Zabbix and zabbix_agentd.d
 
 The file inside `zabbix_agentd.d` folder is a ready to use additional conf that can be put inside `/etc/zabbix/zabbix_agentd.d/` to be used as supplemental config. Note that to this config file works, it must be enabled at the Zabbix Agent config file(default: enabled) and the service must be restarted.
+
+## Possible issues
+
+Sometimes, you'll get a "permission denied" in the first lines od the cod. It's caused by the permissions in the spi device, which you can fix by running the following command:
+
+```c
+chmod +rw /dev/spidev0.0
+
+OR
+
+chmod 666 /dev/spidev0.0
+```
+
+Even though, sometimes the SPI device keeps mounting/remounting itself after a couple of minutes, and has been fixed adding the following code to `/etc/rc.local`:
+
+```c
+chmod 666 /dev/spidev0.0
+```
+
+or add automatically with:
+
+```c
+echo -e "chmod 666 /dev/spidev0.0" | sudo tee -a /etc/rc.local
+```
+
+### This last resolution(adding the chmod to rc.local) IS NOT recommended as a definitive solution, is a open issue that needs some time to fix it definitively.
