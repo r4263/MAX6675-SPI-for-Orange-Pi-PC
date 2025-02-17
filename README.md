@@ -91,4 +91,4 @@ or add automatically with:
 echo -e "chmod 666 /dev/spidev0.0" | sudo tee -a /etc/rc.local
 ```
 
-### This last resolution(adding the chmod to rc.local) IS NOT recommended as a definitive solution, is a open issue that needs some time to fix it definitively.
+### This last resolution(adding the chmod to rc.local) IS NOT recommended as a definitive solution, this is an open issue that needs some time to fix it definitively.
